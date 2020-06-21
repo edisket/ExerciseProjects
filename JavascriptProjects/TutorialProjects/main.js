@@ -1,12 +1,14 @@
 
 
-let height  = 500;
+
+class SampleElement extends HTMLElement{
+
+    constructor(){
+        super();
+
+        
+    }
+}
 
 
-
-
-
-let myHeight = height ?? 100;
-
-
-console.log(myHeight);
+window.customElements.define('sample-element', SampleElement)
