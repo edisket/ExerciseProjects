@@ -1,8 +1,6 @@
 {
     
-    "baseApiUrl":"http://localhost:52159",
-
-    "others":{
-        "version":"1.0.0"
-    }
+    "transactingBranch":"http://localhost:52159",
+    "applicationVersion":"1.0.0"
+   
 }
