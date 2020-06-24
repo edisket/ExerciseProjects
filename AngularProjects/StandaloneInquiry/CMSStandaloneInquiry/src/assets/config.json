@@ -1,0 +1,8 @@
+{
+    
+    "baseApiUrl":"http://localhost:52159",
+
+    "others":{
+        "version":"1.0.0"
+    }
+}
