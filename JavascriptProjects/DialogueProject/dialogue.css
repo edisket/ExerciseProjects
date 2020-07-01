@@ -14,7 +14,6 @@ html, body{
 .container{
     width: 100%;
     height: 100%;
-    filter:blur(2px);
 }
 
 
@@ -30,15 +29,22 @@ html, body{
     height: 100%;
     left: 0;
     top:0;
+    transition: 0.5s;
+    transition: all 0.3s linear;
 }
 
 
 .dialogue{
+    font-size: 14px;
     background-color: #fefefe;
     height: 50%;
     width: 50%;
     margin: auto;
-    padding:20px
+    padding:20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    overflow: auto;
+    
 }
 
 .dialogue-header{
@@ -48,27 +54,47 @@ html, body{
 
 .dialogue-content{
     position: relative;
-    height: 70%;
+    height: 50%;
     display:block;
     overflow: auto;
     font-family: 'Poppins', sans-serif;
     font-weight: 100;
+    padding: 20px;
 }
-
 
 
 
 .dialogue-footer{
     position: relative;
+}
+
+.dialogue-footer > ul{
+    position: relative;
     overflow: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     flex-direction: row;
+    
 }
 
 
-.dialogue-footer > button{
-    margin: 10px;
+
+.dialogue-footer > ul > li{
+    font-size: 1vh;
+    font-size: 1vw;
+    list-style: none;
+    margin-top: 10px;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
 }
 
+
+
+
+.is-blurred{
+    
+    filter:blur(2px);
+}
