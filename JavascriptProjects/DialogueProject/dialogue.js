@@ -1,8 +1,16 @@
 
 let pageContainer = document.getElementsByClassName("container")[0];
 let dialogueContainer = document.getElementsByClassName('dialogue-container')[0];
+let continueButton = document.getElementById("continue-button");
 
 
+
+
+
+
+continueButton.addEventListener('click',()=>{
+    OnDialogueClose();
+})
 
 
 window.onload = ()=>{
@@ -17,8 +25,9 @@ function OnDialogueShow(){
 
     setTimeout(()=>{
         pageContainer.className = pageContainer.className += " is-blurred";
-        dialogueContainer.className = 'dialogue-container'
-        console.log(pageContainer);
+        pageContainer.classList.add('is-blurred');
+
+        dialogueContainer.classList.remove('closed')
     }, 300);
     
 }
@@ -27,7 +36,8 @@ function OnDialogueShow(){
 function OnDialogueClose(){
 
     setTimeout(()=>{
-
+        dialogueContainer.classList.add("closed")
+        pageContainer.classList.remove('is-blurred')
         
     }, 300)
 
