@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <h1>Branch Release Screen</h1>
     </div>
@@ -41,6 +41,60 @@
                     <mat-label>OR NO</mat-label>
                     <input matInput>
                 </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container">
+    <div class="row">
+        <h1>Branch Release Screen</h1>
+    </div>
+    <div class="row">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+        
+            <div>
+                <div class="row">
+                    <div class="col-6">
+                        LOA CV Reference No
+                    </div>
+                    <div class="col-6">
+                        3583583858
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-7">
+                        Batch Reference No
+                    </div>
+                    <div class="col-5">
+                        0001200
+                    </div>
+                </div>
+                
+            </div>
+            <div>
+                <div style="height: 100px; width: 100px; background-color: aquamarine; margin-bottom: 10px; margin: auto;">
+                    <img src="">
+                </div>
+
+                <input style="display: block; margin-bottom: 10px;" type="file">
+
+                <!-- <mat-form-field class="example-full-width">
+                    <mat-label>Recipient ID</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <mat-label>OR NO</mat-label>
+                    <input matInput>
+                </mat-form-field> -->
+
+                <cs-label-text [fc]="mainForm.RecipientFC">
+                </cs-label-text>
+                <cs-label-text [fc]="mainForm.OrNoFC">
+                </cs-label-text>
             </div>
         </div>
     </div>
