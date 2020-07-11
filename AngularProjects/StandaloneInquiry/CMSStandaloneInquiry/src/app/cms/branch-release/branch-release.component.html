@@ -1,103 +1,33 @@
-<!-- <div class="container">
-    <div class="row">
-        <h1>Branch Release Screen</h1>
+<div class="container" style="margin-top: 5px;">
+    <div class="row header">
+        <h1>Check Release Screen</h1>
     </div>
-    <div class="row">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-        
-            <div>
-                <div class="row">
-                    <div class="col-6">
-                        LOA CV Reference No
-                    </div>
-                    <div class="col-6">
-                        3583583858
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-7">
-                        Batch Reference No
-                    </div>
-                    <div class="col-5">
-                        0001200
-                    </div>
-                </div>
-                
-            </div>
-            <div>
-                <div style="height: 100px; width: 100px; background-color: aquamarine; margin-bottom: 10px; margin: auto;">
-                    <img src="">
-                </div>
-
-                <input style="display: block; margin-bottom: 10px;" type="file">
-
-                <mat-form-field class="example-full-width">
-                    <mat-label>Recipient ID</mat-label>
-                    <input matInput>
-                </mat-form-field>
-                <br>
-                <mat-form-field class="example-full-width">
-                    <mat-label>OR NO</mat-label>
-                    <input matInput>
-                </mat-form-field>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- 
-
-<div class="container">
-    <div class="row">
-        <h1>Branch Release Screen</h1>
-    </div>
-    <div class="row">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-        
-            <div>
-                <div class="row">
-                    <div class="col-6">
-                        LOA CV Reference No
-                    </div>
-                    <div class="col-6">
-                        3583583858
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-7">
-                        Batch Reference No
-                    </div>
-                    <div class="col-5">
-                        0001200
-                    </div>
-                </div>
-                
-            </div>
-            <div>
-                <div style="height: 100px; width: 100px; background-color: aquamarine; margin-bottom: 10px; margin: auto;">
-                    <img src="">
-                </div>
-
-                <input style="display: block; margin-bottom: 10px;" type="file">
-
-              
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="container-fluid no-gutters p-0 screen-container bootstrap-override">
+    
     <div class="row">
         <div class="col">
-            <form [formGroup]="form" class="form">
-                <div class="row fields-container">
-                    <div class="col-lg-6">
-                        <cs-label-text [fc]="getFormControl('RecipientFC')"></cs-label-text>
-                        <cs-label-text [fc]="getFormControl('ORFC')"></cs-label-text>
-                    </div>
-                </div>
-            </form>
+            <div class="row">
+                <div class="col"><h4>BATCH REFERENCE ID</h4></div>
+                <div class="col">{{batchId}}</div>
+            </div>
+            <div class="row">
+                <div class="col"><h4>CV REFERENCE NO</h4></div>
+                <div class="col">{{batchId}}</div>
+            </div>
         </div>
     </div>
+    <hr class="row">
+    <div class="row flex" style="background-color: pink;">
+        <div class="flex-item">
+            <cs-label-text [fc]="getFormControl('ORFC')"></cs-label-text>
+            <cs-label-text [fc]="getFormControl('RecipientFC')"></cs-label-text>
+
+        </div>
+        <div class="flex-item" style="background-color: green;">
+            <div class="image-div">
+                <img [src]='this.imgData' class="image-viewer">
+            </div>
+          <input type="file" (change)="OnFileSelected($event.target.files)">
+        </div>
+    </div>
+
 </div>

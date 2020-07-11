@@ -15,6 +15,8 @@ export class BranchReleaseComponent implements OnInit,OnDestroy {
   form : FormGroup;
   batchId:string = '';
   ref:string=''
+
+  imgData:string = ''
   // mainForm: BranchReleaseFG = new BranchReleaseFG();
   constructor(
     private route: ActivatedRoute,
@@ -43,7 +45,8 @@ export class BranchReleaseComponent implements OnInit,OnDestroy {
     let fg = new CSMatFormGroup();
               
     fg.addControl('RecipientFC', new CSLabelTextFC('LOA CV Reference No', {}, ''));
-  fg.addControl('ORFC', new CSLabelTextFC('Batch Reference No', {}, ''));
+    fg.addControl('ORFC', new CSLabelTextFC('Batch Reference No', {}, ''));
+    
 
   
     return fg;
@@ -52,6 +55,34 @@ export class BranchReleaseComponent implements OnInit,OnDestroy {
     getFormControl(name: string) {
       return this.form.get(name);
     }
+
+
+    OnFileSelected(file){
+
+      const reader = new FileReader();
+
+      let blob = file[0].slice(0, file[0].size);
+  
+      reader.onload = () => {
+        var base64Data = < string > reader.result;
+  
+        base64Data = base64Data.split(',')[1];
+  
+  
+      this.PreviewImage(base64Data);
+  
+      }
+  
+      reader.readAsDataURL(blob);
+      
+    }
+
+
+    PreviewImage(file) {
+
+      this.imgData = "data:image/png;base64," + file;
+    }
+    
   
     ngOnDestroy() { }
 }
