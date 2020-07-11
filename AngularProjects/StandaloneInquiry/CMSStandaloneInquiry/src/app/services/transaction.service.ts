@@ -12,7 +12,7 @@ export class TransactionService {
   transactionUrl:string = ''
 
   constructor(private config: ConfigService, private httpClient:HttpClient) { 
-    this.transactionUrl = config.AppConfig.transactingBranch;
+    //this.transactionUrl = config.AppConfig.transactingBranch;
   }
 
 

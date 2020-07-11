@@ -1,25 +1,20 @@
-import {CSMatFormGroup, CSLabelTextFC} from '@csnode/mat-forms';
+import {CSMatFormGroup, CSLabelTextFC} from '@csnode/mat-forms'
 
-
-export class BranchReleaseForm extends CSMatFormGroup{
-
+export class BranchReleaseFG extends CSMatFormGroup{
 
     constructor(){
         super();
 
-        this.addControl('recipientID', new CSLabelTextFC('Recipient ID', {required:true}, ''));
-        this.addControl('orNo', new CSLabelTextFC('OR No', {required:true}, ''));
+        this.addControl('recipientId',  new CSLabelTextFC('Recipient Id', {required:false}, ''));
+        this.addControl('orNumber',  new CSLabelTextFC('OR Number', {required:false}, ''));
     }
 
 
-    public get RecipientFC():CSLabelTextFC{
-        return this.controls['recipientID'] as CSLabelTextFC
+    get RecipientFC():CSLabelTextFC{
+        return this.controls['recipientId'] as CSLabelTextFC;
     }
 
-    public get OrNoFC():CSLabelTextFC{
-        return this.controls['orNo'] as CSLabelTextFC
+    get ORFC():CSLabelTextFC{
+        return this.controls['orNumber'] as CSLabelTextFC;
     }
-
-
-
 }
