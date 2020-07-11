@@ -45,7 +45,7 @@
         </div>
     </div>
 </div> -->
-
+<!-- 
 
 <div class="container">
     <div class="row">
@@ -81,21 +81,23 @@
 
                 <input style="display: block; margin-bottom: 10px;" type="file">
 
-                <!-- <mat-form-field class="example-full-width">
-                    <mat-label>Recipient ID</mat-label>
-                    <input matInput>
-                </mat-form-field>
-                <br>
-                <mat-form-field class="example-full-width">
-                    <mat-label>OR NO</mat-label>
-                    <input matInput>
-                </mat-form-field> -->
-
-                <cs-label-text [fc]="mainForm.RecipientFC">
-                </cs-label-text>
-                <cs-label-text [fc]="mainForm.OrNoFC">
-                </cs-label-text>
+              
             </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid no-gutters p-0 screen-container bootstrap-override">
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="form" class="form">
+                <div class="row fields-container">
+                    <div class="col-lg-6">
+                        <cs-label-text [fc]="getFormControl('RecipientFC')"></cs-label-text>
+                        <cs-label-text [fc]="getFormControl('ORFC')"></cs-label-text>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
