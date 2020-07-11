@@ -6,6 +6,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { RouterModule } from '@angular/router';
 import { BranchReleaseComponent } from './branch-release.component';
 import { CmsCommonModule } from '../cms-common.module';
+import { ConfigService } from 'src/app/services/config.service';
 
 // import { TrantlrRptComponent } from './trantlr-rpt.component';
 
@@ -17,7 +18,7 @@ import { CmsCommonModule } from '../cms-common.module';
 	CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMaskModule.forChild(),
+    NgxMaskModule.forRoot(),
 
     CSMatFormsModule.forChild(),
 
@@ -28,6 +29,7 @@ import { CmsCommonModule } from '../cms-common.module';
 
     CmsCommonModule.forChild(),
   ],
+
   exports: [
     BranchReleaseComponent,
   ]
