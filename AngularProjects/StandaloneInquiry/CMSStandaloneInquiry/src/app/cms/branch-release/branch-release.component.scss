@@ -26,13 +26,21 @@
     flex-wrap: wrap;
 }
 
-.flex-item{
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.flex-item-grow{
     flex-grow: 1;
 }
-
-.image-div{
-    min-width: 400px;
-    background-color: gray;
+.flex-item-column{
+    background-color:red;
+    position: relative;
 }
-
-
+.image-div{
+    position: relative;
+    width: 70%;
+    height: 50%;
+}

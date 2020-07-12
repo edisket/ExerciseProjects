@@ -17,16 +17,28 @@
     </div>
     <hr class="row">
     <div class="row flex" style="background-color: pink;">
-        <div class="flex-item">
+        <div class="flex-item-grow">
             <cs-label-text [fc]="getFormControl('ORFC')"></cs-label-text>
             <cs-label-text [fc]="getFormControl('RecipientFC')"></cs-label-text>
 
         </div>
-        <div class="flex-item" style="background-color: green;">
-            <div class="image-div">
+        <div class="flex-item-grow" style="background-color: green;">
+            <!-- <div class="image-div">
                 <img [src]='this.imgData' class="image-viewer">
             </div>
-          <input type="file" (change)="OnFileSelected($event.target.files)">
+           -->
+
+
+          <div class="flex-column">
+              <div class="flex-item-column">
+                <div class="image-div">
+                    <img [src]='this.imgData' class="image-viewer">
+                </div>
+              </div>
+              <div class="flex-item-column">
+                <input type="file" (change)="OnFileSelected($event.target.files)">
+              </div>
+          </div>
         </div>
     </div>
 
