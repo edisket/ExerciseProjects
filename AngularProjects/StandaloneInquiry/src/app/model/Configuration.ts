@@ -1,6 +1,9 @@
 export class Configuration{
 
-    transactingBranch:string;
-    applicationVersion:string;
+
+    
+
+    transactingBranch?:string;
+    applicationVersion?:string;
 
 }
