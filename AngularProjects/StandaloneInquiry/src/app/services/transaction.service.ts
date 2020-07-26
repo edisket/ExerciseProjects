@@ -76,7 +76,7 @@ export class TransactionService {
     let response:BranchReleaseMessage ;
     console.log("run transaction!");
 
-     return this.httpClient.post<BranchReleaseMessage>("http://localhost:52159/"+"transaction/submit", requestPayload, {headers:httpHeader} )
+     return this.httpClient.post<BranchReleaseMessage>("http://192.168.1.8/Consolsys.Shell.API/"+"transaction/submit", requestPayload, {headers:httpHeader} )
   }
 
 

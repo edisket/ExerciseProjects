@@ -16,7 +16,9 @@ export class BranchReleaseComponent implements OnInit,OnDestroy {
 
   form : FormGroup;
   batchId:string = '';
-  ref:string=''
+  ref:string='';
+  selectedImage:string = '';
+  srcFile:string = '';
   // mainForm: BranchReleaseFG = new BranchReleaseFG();
   constructor(
     private route: ActivatedRoute,
@@ -80,4 +82,34 @@ export class BranchReleaseComponent implements OnInit,OnDestroy {
     }
   
     ngOnDestroy() { }
+
+
+    OnFileSelected(file) {
+      var self = this;
+  
+      const reader = new FileReader();
+  
+      let blob = file[0].slice(0, file[0].size);
+  
+      reader.onload = () => {
+        var base64Data = < string > reader.result;
+  
+        base64Data = base64Data.split(',')[1];
+  
+  
+        this.selectedImage = base64Data;
+  
+        this.PreviewImage(base64Data);
+  
+      }
+  
+      reader.readAsDataURL(blob);
+  
+  
+    }
+
+    PreviewImage(file) {
+
+      this.srcFile = "data:image/png;base64," + file;
+    }
 }
