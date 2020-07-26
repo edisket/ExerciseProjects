@@ -41,4 +41,9 @@ function OnDialogueClose(){
         
     }, 300)
 
+
+    setTimeout(()=>{
+        dialogueContainer.classList.add("hidden")
+    }, 1000)
+
 }
