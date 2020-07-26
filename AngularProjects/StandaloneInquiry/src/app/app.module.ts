@@ -45,16 +45,27 @@ import {MatTreeModule} from '@angular/material/tree';
 import { CSMatFormsModule } from "@csnode/mat-forms";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BranchReleaseModule } from './cms/branch-release/branch-release.module';
+import { MainPageComponent } from './main-page/main-page.component';
+import { HomePageComponent } from './main-page/home-page/home-page.component';
+import { PortalModule } from '@angular/cdk/portal';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CheckPrintingModule } from './cms/check-printing/check-printing.module';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
-export function configServiceFactory(config:ConfigService){
-  return ()=>config.load();
-}
+// export function configServiceFactory(config:ConfigService){
+//   return ()=>config.load();
+// }
+
+const options: Partial<IConfig> | (() => Partial<IConfig>) = {
+  thousandSeparator: ','
+};
 
 @NgModule({
   declarations: [
     AppComponent,
-    // BranchReleaseComponent,
-    CheckPrintingComponent
+    MainPageComponent,
+    HomePageComponent 
+ 
   ],
   imports: [
     FormsModule,
@@ -100,20 +111,23 @@ export function configServiceFactory(config:ConfigService){
     MatTooltipModule,
     MatTreeModule,
     BranchReleaseModule,
-    // PortalModule,    
-    // ScrollingModule,
+    PortalModule,    
+    ScrollingModule,
     CSMatFormsModule.forChild(),
     // NgxCurrencyModule.forRoot(currencyMaskConfig),
-    // NgxMaskModule.forRoot(options)
+    NgxMaskModule.forRoot(options),
+       BranchReleaseModule,
+       CheckPrintingModule
+    // CheckPrintingComponent
   ],
   providers: [
-    ConfigService,
-    {
-      provide:APP_INITIALIZER,
-      useFactory:configServiceFactory,
-      deps:[ConfigService],
-      multi:true
-    }
+    // ConfigService,
+    // {
+    //   provide:APP_INITIALIZER,
+    //   useFactory:configServiceFactory,
+    //   deps:[ConfigService],
+    //   multi:true
+    // }
   ],
   bootstrap: [AppComponent]
 })

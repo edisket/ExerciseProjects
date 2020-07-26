@@ -3,7 +3,6 @@ import {Router, ActivatedRoute, ParamMap} from '@angular/router'
 import {BranchReleaseFG} from '../../model/form/branch-release-form';
 import { CSLabelAmountFC, CSLabelTextFC, CSLabelNumberFC, CSLabelDateFC, CSLabelRadioFC, CSLabelDropDownFC, CSLabelCheckBoxListFC, CSLabelDropDownValidators, CSLabelDropDownFCOptions, CSMatFormGroup } from '@csnode/mat-forms';
 import { FormGroup } from '@angular/forms';
-import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'branch-release',
@@ -15,27 +14,25 @@ export class BranchReleaseComponent implements OnInit,OnDestroy {
   form : FormGroup;
   batchId:string = '';
   ref:string=''
-
-  imgData:string = ''
   // mainForm: BranchReleaseFG = new BranchReleaseFG();
   constructor(
-    private route: ActivatedRoute,
-    tran: TransactionService
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.form = this.createForm();
 
-    this.route.queryParams.subscribe(params => {
-      let obj = {
-        batchId: params['batchId'],
-        refNo: params['ref']
-      }
+    // this.route.queryParams.subscribe(params => {
+    //   let obj = {
+    //     batchId: params['batchId'],
+    //     refNo: params['ref']
+    //   }
       
 
-      this.batchId = params['batchId'];
-      this.ref = params['ref'];
-    });
+    //   this.batchId = params['batchId'];
+    //   this.ref = params['ref'];
+    //   console.log(obj)
+    // });
 
 
 
@@ -45,8 +42,7 @@ export class BranchReleaseComponent implements OnInit,OnDestroy {
     let fg = new CSMatFormGroup();
               
     fg.addControl('RecipientFC', new CSLabelTextFC('LOA CV Reference No', {}, ''));
-    fg.addControl('ORFC', new CSLabelTextFC('Batch Reference No', {}, ''));
-    
+  fg.addControl('ORFC', new CSLabelTextFC('Batch Reference No', {}, ''));
 
   
     return fg;
@@ -55,34 +51,6 @@ export class BranchReleaseComponent implements OnInit,OnDestroy {
     getFormControl(name: string) {
       return this.form.get(name);
     }
-
-
-    OnFileSelected(file){
-
-      const reader = new FileReader();
-
-      let blob = file[0].slice(0, file[0].size);
-  
-      reader.onload = () => {
-        var base64Data = < string > reader.result;
-  
-        base64Data = base64Data.split(',')[1];
-  
-  
-      this.PreviewImage(base64Data);
-  
-      }
-  
-      reader.readAsDataURL(blob);
-      
-    }
-
-
-    PreviewImage(file) {
-
-      this.imgData = "data:image/png;base64," + file;
-    }
-    
   
     ngOnDestroy() { }
 }
