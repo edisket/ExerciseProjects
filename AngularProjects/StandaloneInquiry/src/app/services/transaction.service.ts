@@ -3,6 +3,7 @@ import { BranchReleaseRequest } from '../model/message/request/branch-release-re
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import { Observable } from 'rxjs';
+import { BranchReleaseResponse } from '../model/message/response/branch-release-response';
 
 @Injectable({
   providedIn: 'root'
@@ -27,24 +28,29 @@ export class TransactionService {
     var dateTime = date+' '+time;
 
     let req = {
+      requestBody: requestBody,
+      uUID:"9a59aaee-d6a9-14f2-70cc-7c36dbd085cf",
+      businessDate: dateTime,
       requestMessage:{
         viewClass:"standalone",
-        tranUserName:"operator",
+        //tranUser must be valid
+        tranUserName:"edison",
         organizationCode:"038",
         organizationId:1,
         userId:10,
         workstationId:'',
         submitTime: dateTime,
         serviceStartTime: dateTime,
-        extRefnum: '3aa5da94-2744-448f-938f-5486a1a15ade',
+        extRefnum: '003b9eb9-0c08-9185-c367-18900a1033d3',
         tranAmount:{
           currencyType:"PHP"
         },
         channelId:"5",
         tranCode:tranCode
       },
+      status:1,
 
-      requestBody: requestBody
+      
     }
 
 
@@ -57,7 +63,7 @@ export class TransactionService {
   }
   
 
-  public RunTransaction<BranchReleaseMessage>(tranCode: string, request: any){
+  public RunTransaction<BranchReleaseMessage>(tranCode: string, request: any): Observable<BranchReleaseResponse>{
 
     let httpHeader: HttpHeaders = new HttpHeaders({
       'Content-Type':'application/json',
@@ -70,15 +76,7 @@ export class TransactionService {
     let response:BranchReleaseMessage ;
     console.log("run transaction!");
 
-     this.httpClient.post<BranchReleaseMessage>("http://192.168.1.17/Consolsys.Shell.API/"+"transaction/submit", requestPayload, {headers:httpHeader} ).subscribe(res=>{
-
-     console.log(res);
-
-     response =  res;
-     })
-
-     return response;
-    
+     return this.httpClient.post<BranchReleaseMessage>("http://localhost:52159/"+"transaction/submit", requestPayload, {headers:httpHeader} )
   }
 
 

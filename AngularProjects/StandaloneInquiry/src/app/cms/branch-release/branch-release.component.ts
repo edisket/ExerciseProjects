@@ -5,6 +5,7 @@ import { CSLabelAmountFC, CSLabelTextFC, CSLabelNumberFC, CSLabelDateFC, CSLabel
 import { FormGroup } from '@angular/forms';
 import { TransactionService } from 'src/app/services/transaction.service';
 import { BranchReleaseMessage } from 'src/app/model/message/branch-release-message';
+import { BranchReleaseResponse } from 'src/app/model/message/response/branch-release-response';
 
 @Component({
   selector: 'branch-release',
@@ -38,12 +39,26 @@ export class BranchReleaseComponent implements OnInit,OnDestroy {
 
 
      message.RequestBody = {
-       cvRef:obj.refNo,
-       batchId:obj.batchId,
+       encryptedCV:obj.refNo,
+       encryptedBatch:obj.batchId,
      }
     
 
-      this.service.RunTransaction('DecCvDtlOpr', message  )
+      this.service.RunTransaction('DecCvDtlOpr', message  ).subscribe(res=>{
+
+        let response = JSON.parse(res as string);
+
+
+        message = response as BranchReleaseMessage;
+
+        this.batchId = message.ResponseBody.BatchId;
+        this.ref = message.ResponseBody.CVRef;
+
+        console.log(message);
+        
+      }, err=>{
+        console.log(err);
+      })
     });
 
 
