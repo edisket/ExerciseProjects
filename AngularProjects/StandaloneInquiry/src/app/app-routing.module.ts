@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
   {path:'branch-release', component:BranchReleaseComponent},
   {path:'check-printing', component:CheckPrintingComponent}
 ];
